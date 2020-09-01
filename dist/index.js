@@ -4,6 +4,5 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("./database"));
-console.log("Lol");
 database_1.default();
 //# sourceMappingURL=index.js.map

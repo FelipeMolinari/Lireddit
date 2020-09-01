@@ -13,15 +13,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@mikro-orm/core");
-const Post_1 = require("./entities/Post");
 const mikro_orm_config_1 = __importDefault(require("./mikro-orm.config"));
 function db() {
     return __awaiter(this, void 0, void 0, function* () {
         const orm = yield core_1.MikroORM.init(mikro_orm_config_1.default);
+        yield orm.getMigrator().up();
         return orm;
-        const post = orm.em.create(Post_1.Post, { title: "my first post here" });
-        yield orm.em.persistAndFlush(post);
-        yield orm.em.nativeInsert(Post_1.Post, { title: "my first post 2" });
     });
 }
 exports.default = db;
